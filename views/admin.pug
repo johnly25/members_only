@@ -1,0 +1,12 @@
+extends layout 
+block content 
+    h2 Who is the captain of the Straw Hats in One Piece? 
+
+    form(action="/admin" method="POST") 
+        input(type="text" name='answer') 
+        button Submit
+
+    if errors
+        ul 
+            for error in errors
+                li #{error.msg}

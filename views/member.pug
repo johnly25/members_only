@@ -1,0 +1,12 @@
+extends layout 
+block content 
+    h2 Who is the character with 3 swords from the show One Piece? 
+
+    form(action="/member" method="POST") 
+        input(type="text" name='answer') 
+        button Submit
+
+    if errors
+        ul 
+            for error in errors
+                li #{error.msg}

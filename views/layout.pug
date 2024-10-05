@@ -1,0 +1,26 @@
+doctype html
+html(lang="en")
+  head
+    meta(charset="UTF-8")
+    title 
+  body
+    block nav 
+      a(href="/") Home
+      | &nbsp &nbsp &nbsp
+      if !user
+        a(href="/signup") Signup
+        | &nbsp &nbsp &nbsp
+        a(href="/login") Login  
+      if user
+        if !user.membership
+          a(href="/member") Become a member
+          | &nbsp &nbsp &nbsp
+        if user.membership & !user.admin
+          a(href="/admin") Become a Admin
+          | &nbsp &nbsp &nbsp
+        a(href="/logout") Log out
+
+    br
+    br
+    br
+    block content

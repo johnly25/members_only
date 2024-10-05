@@ -1,0 +1,27 @@
+extends layout
+block content
+    h1 Sign Up Form 
+    form(action="/sign-up" method="POST")
+        label(for="first-name") First Name &nbsp
+        input(name="first-name" id="first-name" placeholder="Kazuha" type="text") 
+        br
+        label(for="last-name") Last Name &nbsp
+        input(name="last-name" id="last-name" placeholder="Nakamura" type="text")
+        br
+        label(for="username") Username &nbsp
+        input(name="username" id="username" placeholder="username" type="text")
+        br
+        label(for="password") Password &nbsp
+        input(name="password" id="password" type="password")
+        br
+        label(for="password-confirm") Confirm Password &nbsp
+        input(name="password-confirm" id="password-confirm" type="password")
+        br
+        button Sign up
+        p or 
+            a(href="/login") LOGIN HERE 
+
+        if errors
+            ul 
+                for error in errors
+                    li #{error.msg}

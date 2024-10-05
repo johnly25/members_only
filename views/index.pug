@@ -1,0 +1,27 @@
+extends layout 
+block content
+    h1 Members Only
+    if user
+        h1 WELCOME BACK #{user.username}
+            if (user.membership)
+                |  (member)
+        h2 
+    h2 Messages
+
+    if messages
+        ul 
+            each message in messages 
+                p #{message.text}
+                if user && user.membership
+                    p #{message.date_formatted}
+                    if user.admin
+                        a(href="delete/"+message.id)  Delete
+                    p #{message.username} aka #{message.firstname}
+                br
+            
+    if user && user.membership 
+        form(action="/message" method="POST")
+            input( type='text' name="message" id='message' placeholder="send message") 
+
+    else 
+        p login and become a member to send a message
